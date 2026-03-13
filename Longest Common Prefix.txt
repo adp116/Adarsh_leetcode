@@ -1,0 +1,22 @@
+Longest Common Prefix; Find the longest prefix (starting characters) that is common to all strings in the array. If no common prefix exists, return an empty string "".
+Start with the first string as the prefix and compare it with each string, shortening the prefix until all strings start with it. Return the remaining prefix.
+
+
+
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) return "";
+        
+        String prefix = strs[0];
+        
+        for (int i = 1; i < strs.length; i++) {
+            while (strs[i].indexOf(prefix) != 0) {
+                prefix = prefix.substring(0, prefix.length() - 1);
+                
+                if (prefix.isEmpty()) return "";
+            }
+        }
+        
+        return prefix;
+    }
+}

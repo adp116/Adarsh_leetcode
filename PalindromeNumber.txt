@@ -1,0 +1,20 @@
+Palindrome Number: This problem asks to check wether a number backwards is the same number as it was originally, I will do this 
+by converting the number into a string and then comparing the end with the beginning 
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        String s = Integer.toString(x);
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+}
